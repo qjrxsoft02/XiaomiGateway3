@@ -2137,18 +2137,13 @@ DEVICES += [{
         ConstConv("action", mi="5.e.1014", value=BUTTON_3_HOLD),
     ],
 }, {
-    # https://home.miot-spec.com/spec?type=urn:miot-spec-v2:device:remote-control:0000A021:090615-x1swd:1:0000D057
+  # https://home.miot-spec.com/spec?type=urn:miot-spec-v2:device:remote-control:0000A021:090615-x1swd:1:0000D057
     25797: ["PTX", "F1 Four-Key Wireless Switch", "PTX-F14-BT", "090615.remote.x1swd"],
     "spec": [
-        # --- Button events ---
         BaseConv("action", "sensor"),
-        # Single press events (eid: 1012)
         MapConv("action", mi="3.e.1012.p.1", map={1: BUTTON_1_SINGLE, 2: BUTTON_2_SINGLE, 3: BUTTON_3_SINGLE, 4: BUTTON_4_SINGLE}),
-        # Double press events (eid: 1013)
-        MapConv("action", mi="3.e.1013.p.1", map={1: BUTTON_1_DOUBLE, 2: BUTTON_2_DOUBLE, 3: BUTTON_3_DOUBLE, 4: BUTTON_4_DOUBLE}),
-        # Long press events (eid: 1014)
+        MapConv("action", mi="3.e.1013.p.1", map={1: BUTTON_1_DOUBLE, 2: BUTTON_2_DOUBLE, 3: BUTTON_3_DOUBLE, 4: BUTTON_4_DOUBLE}),       
         MapConv("action", mi="3.e.1014.p.1", map={1: BUTTON_1_HOLD, 2: BUTTON_2_HOLD, 3: BUTTON_3_HOLD, 4: BUTTON_4_HOLD}),
-        # --- Sensors ---
         # Humidity (uint8)
         BaseConv("humidity", "sensor", mi="8.p.1018"),
         # Temperature (int32)
@@ -2156,6 +2151,7 @@ DEVICES += [{
         # Battery level
         BaseConv("battery", "sensor", mi="6.p.1003"),
     ],
+    # "ttl": "7d"  
 }, {
     # https://github.com/AlexxIT/XiaomiGateway3/pull/1294
     14945: ["Linptech", "Wireless Button KS1", "linp.remote.ks1"],
